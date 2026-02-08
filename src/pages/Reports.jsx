@@ -5,6 +5,21 @@ const Reports = () => {
   const [selectedReport, setSelectedReport] = useState(null);
   const [filterType, setFilterType] = useState('all');
 
+  // Function to get unique image for each report type
+  const getReportImage = (reportType) => {
+    const imageMap = {
+      'Complete Blood Count (CBC)': 'photo-1579154204601-01588f351e67', // Blood test tubes
+      'Lipid Profile': 'photo-1631549916768-4119b2e5f926', // Heart health/cholesterol
+      'Thyroid Function Test': 'photo-1582719478250-c89cae4dc85b', // Thyroid scan
+      'Kidney Function Test': 'photo-1559757148-5c350d0d3c56', // Medical imaging
+      'Liver Function Test': 'photo-1584982751601-97dcc096659c', // Liver health
+      'HbA1c (Diabetes)': 'photo-1615461065929-4f8ffed8e3f7', // Diabetes monitoring
+    };
+    
+    const imageId = imageMap[reportType] || 'photo-1576091160399-112ba8d25d1d';
+    return `https://images.unsplash.com/` + imageId + `?w=400&h=300&fit=crop`;
+  };
+
   const filteredReports = filterType === 'all' 
     ? bloodReports 
     : bloodReports.filter(r => r.type.toLowerCase().includes(filterType));
@@ -63,7 +78,7 @@ const Reports = () => {
             <div className="report-header">
               <div className="report-icon">
                 <img 
-                  src={`https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&h=300&fit=crop`} 
+                  src={getReportImage(report.type)} 
                   alt={report.type}
                 />
               </div>

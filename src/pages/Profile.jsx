@@ -33,7 +33,7 @@ const Profile = ({ user }) => {
           <div className="profile-header-content">
             <div className="profile-avatar-section">
               <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=John&style=circle&backgroundColor=e0e7ff&accessories=prescription02&accessoriesProbability=100&clothing=blazerShirt&clothingColor=3c4f76&eyebrows=default&eyes=default&facialHair=beardMajestic&facialHairColor=4a312c&mouth=smile&top=shortHair&topColor=4a312c" 
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=ArjunMale&backgroundColor=2563eb&mouth=serious" 
                 alt="Profile" 
                 className="profile-avatar-large"
               />

@@ -3,6 +3,9 @@ import Navigation from './components/Navigation';
 import Dashboard from './pages/Dashboard';
 import Reports from './pages/Reports';
 import Consultations from './pages/Consultations';
+import AIPrediction from './pages/AIPrediction';
+import DailyNutrition from './pages/DailyNutrition';
+import EMedicines from './pages/EMedicines';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Account from './pages/Account';
@@ -34,6 +37,12 @@ function App() {
         return <Reports />;
       case 'consultations':
         return <Consultations />;
+      case 'ai-prediction':
+        return <AIPrediction />;
+      case 'nutrition':
+        return <DailyNutrition />;
+      case 'emedicines':
+        return <EMedicines />;
       case 'profile':
         return <Profile user={user} />;
       case 'account':

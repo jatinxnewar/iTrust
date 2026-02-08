@@ -18,6 +18,21 @@ const Navigation = ({ currentPage, setCurrentPage, user, onLogout }) => {
       id: 'consultations', 
       label: 'Consultations', 
       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/></svg>
+    },
+    { 
+      id: 'ai-prediction', 
+      label: 'AI Health', 
+      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+    },
+    { 
+      id: 'nutrition', 
+      label: 'Nutrition', 
+      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z" fill="currentColor"/></svg>
+    },
+    { 
+      id: 'emedicines', 
+      label: 'E-Medicines', 
+      icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
     }
   ];
 
@@ -69,7 +84,7 @@ const Navigation = ({ currentPage, setCurrentPage, user, onLogout }) => {
               className="user-avatar"
               onClick={() => setShowUserMenu(!showUserMenu)}
             >
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=John&style=circle&backgroundColor=e0e7ff&accessories=prescription02&accessoriesProbability=100&clothing=blazerShirt&clothingColor=3c4f76&eyebrows=default&eyes=default&facialHair=beardMajestic&facialHairColor=4a312c&mouth=smile&top=shortHair&topColor=4a312c" alt="User" />
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=ArjunMale&backgroundColor=2563eb&mouth=serious" alt="User" />
             </button>
             {showUserMenu && (
               <div className="user-dropdown">

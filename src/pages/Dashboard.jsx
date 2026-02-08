@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { medicineDiary, healthTips, recentActivity, achievements, upcomingAppointments } from '../data/mockData';
+import { healthTips, achievements } from '../data/mockData';
 
 const Dashboard = () => {
   const [timeFilter, setTimeFilter] = useState('weekly');
@@ -165,146 +165,24 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Medicine Tracker */}
-      <div className="section-container">
-        <div className="section-header">
-          <h2 className="section-title">Medicine Tracker</h2>
-          <button className="add-btn" onClick={() => openAddModal('medicine')}>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 5v10M5 10h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            Add Medicine
-          </button>
-        </div>
-
-        <div className="medicine-list">
-          {medicineDiary.map((medicine, idx) => (
-            <div key={idx} className="medicine-item">
-              <div className="medicine-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 8v8M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="medicine-info">
-                <h4 className="medicine-name">{medicine.name}</h4>
-                <p className="medicine-dosage">{medicine.dosage} • {medicine.frequency}</p>
-              </div>
-              <div className="medicine-time">{medicine.time}</div>
-              <button className="medicine-check">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M5 10l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Upcoming Appointments */}
+      {/* Health Tips */}
       <div className="dashboard-section">
         <div className="section-header">
-          <h2 className="section-title">Upcoming Appointments</h2>
-          <button className="section-link">View All</button>
+          <h2 className="section-title">Health Tips</h2>
         </div>
-        <div className="appointments-list">
-          {upcomingAppointments.map(appointment => (
-            <div key={appointment.id} className="appointment-item">
-              <div className="appointment-date">
-                <span className="date-day">{new Date(appointment.date).getDate()}</span>
-                <span className="date-month">{new Date(appointment.date).toLocaleDateString('en-US', {month: 'short'})}</span>
-              </div>
-              <div className="appointment-details">
-                <h4 className="appointment-doctor">{appointment.doctor}</h4>
-                <p className="appointment-specialty">{appointment.specialty} • {appointment.type}</p>
-                <p className="appointment-location">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{display: 'inline', marginRight: '4px'}}>
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                  {appointment.location}
-                </p>
-              </div>
-              <div className="appointment-time">
-                <span className="time-badge">{appointment.time}</span>
+        <div className="tips-list">
+          {healthTips.map(tip => (
+            <div key={tip.id} className="tip-item">
+              <div className={`tip-priority ${tip.priority}`}></div>
+              <div className="tip-content">
+                <div className="tip-header">
+                  <span className="tip-category">{tip.category}</span>
+                  <h4 className="tip-title">{tip.title}</h4>
+                </div>
+                <p className="tip-description">{tip.description}</p>
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Health Tips & Recent Activity Grid */}
-      <div className="dual-section-grid">
-        {/* Health Tips */}
-        <div className="dashboard-section">
-          <div className="section-header">
-            <h2 className="section-title">Health Tips</h2>
-          </div>
-          <div className="tips-list">
-            {healthTips.map(tip => (
-              <div key={tip.id} className="tip-item">
-                <div className={`tip-priority ${tip.priority}`}></div>
-                <div className="tip-content">
-                  <div className="tip-header">
-                    <span className="tip-category">{tip.category}</span>
-                    <h4 className="tip-title">{tip.title}</h4>
-                  </div>
-                  <p className="tip-description">{tip.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Recent Activity */}
-        <div className="dashboard-section">
-          <div className="section-header">
-            <h2 className="section-title">Recent Activity</h2>
-          </div>
-          <div className="activity-timeline">
-            {recentActivity.map(activity => (
-              <div key={activity.id} className="activity-item">
-                <div className={`activity-icon ${activity.type}`}>
-                  {activity.type === 'checkup' && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" fill="currentColor"/>
-                    </svg>
-                  )}
-                  {activity.type === 'report' && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/>
-                    </svg>
-                  )}
-                  {activity.type === 'medicine' && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M4.22 11.29l1.42 1.42L7.5 11l-1.86-1.71-1.42 1.42zM20 8.69l-1.41-1.42L16.73 9.1l1.41 1.42L20 8.69zM13 3h-2v3h2V3zm-1 16c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm-7-5c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7-7-3.13-7-7z" fill="currentColor"/>
-                      <circle cx="12" cy="14" r="2" fill="currentColor"/>
-                    </svg>
-                  )}
-                  {activity.type === 'appointment' && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" fill="currentColor"/>
-                    </svg>
-                  )}
-                  {activity.type === 'exercise' && (
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z" fill="currentColor"/>
-                    </svg>
-                  )}
-                </div>
-                <div className="activity-content">
-                  <h4 className="activity-title">{activity.title}</h4>
-                  <p className="activity-meta">
-                    {activity.doctor || activity.medicine || activity.testName || activity.details}
-                  </p>
-                  <span className="activity-time">{new Date(activity.date).toLocaleDateString()} • {activity.time}</span>
-                </div>
-                <span className={`activity-status ${activity.status}`}>
-                  {activity.status}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
