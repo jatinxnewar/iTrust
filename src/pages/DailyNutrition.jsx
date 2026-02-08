@@ -134,13 +134,6 @@ const DailyNutrition = () => {
     return Math.min((consumed / goal) * 100, 100);
   };
 
-  const getStatusColor = (consumed, goal) => {
-    const percentage = (consumed / goal) * 100;
-    if (percentage >= 90) return 'green';
-    if (percentage >= 70) return 'orange';
-    return 'red';
-  };
-
   const handleAddMeal = (e) => {
     e.preventDefault();
     const itemsArray = newMeal.items.split(',').map(item => item.trim());
