@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { healthMetrics, medicineDiary, healthTips, recentActivity, achievements, upcomingAppointments } from '../data/mockData';
+import { medicineDiary, healthTips, recentActivity, achievements, upcomingAppointments } from '../data/mockData';
 
 const Dashboard = () => {
   const [timeFilter, setTimeFilter] = useState('weekly');

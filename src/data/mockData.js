@@ -1,4 +1,4 @@
-﻿export const healthMetrics = {
+export const healthMetrics = {
   steps: {
     current: 2403,
     goal: 10000,
