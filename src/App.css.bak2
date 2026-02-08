@@ -1,4 +1,4 @@
-* {
+﻿* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -2357,8 +2357,6 @@ html {
   color: #64748b;
 }
 
-/* Toggle switches - temporarily disabled for build compatibility */
-/*
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -2403,7 +2401,6 @@ html {
 .toggle-switch input:checked + .toggle-slider::before {
   transform: translateX(24px);
 }
-*/
 
 .danger-zone {
   border: 2px solid #fee2e2;
@@ -2674,7 +2671,16 @@ html {
   position: relative;
 }
 
-.login-divider::before,
+.login-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 42%;
+  height: 1px;
+  background: #e2e8f0;
+  left: 0;
+}
+
 .login-divider::after {
   content: '';
   position: absolute;
@@ -2682,10 +2688,8 @@ html {
   width: 42%;
   height: 1px;
   background: #e2e8f0;
+  right: 0;
 }
-
-.login-divider::before { left: 0; }
-.login-divider::after { right: 0; }
 
 .login-divider span {
   background: #fafbfc;
@@ -4039,6 +4043,35 @@ html {
   color: #64748b;
   margin: 0;
   line-height: 1.6;
+}
+
+.chat-sidebar {
+    display: none;
+  }
+
+  .nutrition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cart-sidebar {
+    width: 100%;
+  }
+
+  .ai-prediction-page,
+  .nutrition-page,
+  .emedicines-page {
+    padding: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .page-header {
+    flex-direction: columnid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+  }
 }
 
 /* Modal Styles */
